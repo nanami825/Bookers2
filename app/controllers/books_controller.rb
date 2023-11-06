@@ -30,6 +30,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
     @book_new = Book.new
+    @book_comment = BookComment.new
   end
 
   def update
@@ -48,9 +49,7 @@ class BooksController < ApplicationController
     redirect_to '/books'
   end
 
-  def after_sign_out_path_for(resource)
-    about_path
-  end
+  
 
   private
   def book_params
